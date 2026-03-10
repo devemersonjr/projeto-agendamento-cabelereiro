@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Agendamentos</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<h1>Sistema de Agendamento</h1>
+
+<form action="/agendar" method="post">
+    <input type="text" name="nome" placeholder="Seu nome" required>
+    
+    <select name="servico">
+        <option>Corte</option>
+        <option>Barba</option>
+        <option>Combo</option>
+    </select>
+
+    <input type="datetime-local" name="data" required>
+
+    <button type="submit">Agendar</button>
+</form>
+
+<h2>Agendamentos</h2>
+
+<ul>
+{% for a in agendamentos %}
+<li>{{a.nome}} - {{a.servico}} - {{a.data}}</li>
+{% endfor %}
+</ul>
+
+</body>
+</html>
